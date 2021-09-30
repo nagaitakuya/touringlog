@@ -1,0 +1,17 @@
+<%= form_with(model: touring_log, local: true) do |form| %>
+  <% if touring_log.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(touring_log.errors.count, "error") %> prohibited this touring_log from being saved:</h2>
+
+      <ul>
+      <% touring_log.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
