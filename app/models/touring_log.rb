@@ -1,0 +1,2 @@
+class TouringLog < ApplicationRecord
+end
