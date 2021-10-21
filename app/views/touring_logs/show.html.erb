@@ -1,4 +1,42 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_touring_log_path(@touring_log) %> |
-<%= link_to 'Back', touring_logs_path %>
+<div class="py-3 px-5">  
+  <div class="comment_page_log_name text-center">
+    <%= @touring_log.name %>
+  </div>
+  <hr>
+  <div class="row">
+    <% if user_signed_in? %>
+      <%= form_with model: @touring_log do |f| %>
+        <%= f.hidden_field :id, value: @touring_log.id %>
+        <%= f.hidden_field :name, value: @touring_log.name %>  
+      <% end %>
+    <% end %>
+  </div>
+  <div class="pt-3 text-center">
+    <% @reviews.each do |review| %>
+      <div class="offset-mt-5">
+        <p class="h3"><%= review.content %></p>
+        <label><%= review.created_at %></label>
+      </div>
+    <% end %>
+  </div>
+  <% if user_signed_in? %>
+    <%= form_with model: @touring_log do |f| %>
+      <%= f.hidden_field :id, value: @touring_log.id %>
+      <%= f.hidden_field :name, value: @touring_log.name %>           
+    <% end %>
+  <% end %>     
+  <div class="offset-md-1 col-md-10 pt-3">
+    <%= form_with model: @review, url: reviews_path do |f| %>
+      <%= f.hidden_field :touring_log_id, value: @touring_log.id %>
+      <div class="font-style offset-1 col-10">
+        <%= f.text_area :content, class: "form-control mt-5" %>   
+      </div>            
+      <div class="ml-5 py-2 text-right">
+        <%= f.submit "コメントを追加" , class:"btn touring_log-submit-button ml-2 text-white-50 bg-dark"%>
+      </div> 
+    <% end %>
+    <div class="ml-5 text-right">
+      <%= link_to 'Touring logsに戻る', touring_logs_path %> 
+    </div>
+  </div>
+</div>

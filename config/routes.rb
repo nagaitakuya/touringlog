@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :touring_logs
+ 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions',
@@ -15,5 +15,15 @@ Rails.application.routes.draw do
     get "login", :to => "users/sessions#new"
     delete "logout", :to => "users/sessions#destroy"
   end
-  resources :touring_log
+
+  resources :users, only: [:edit, :update] do
+    collection do
+      get "mypage", :to => "users#mypage"
+      get "mypage/edit", :to => "users#edit"
+      put "mypage", :to => "users#update"
+    end
+  end
+  
+  resources :touring_logs 
+  resources :reviews, only: [:create]
 end

@@ -9,6 +9,7 @@ class CreateTouringLogs < ActiveRecord::Migration[5.2]
       t.string :image_uplord
       t.text :description
       t.string :created_at
+      
       t.timestamps
     end
   end

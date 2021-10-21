@@ -1,24 +1,18 @@
-
-<h1>Touring Logs</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @touring_logs.each do |touring_log| %>
-      <tr>
-        <td><%= link_to 'Show', touring_log %></td>
-        <td><%= link_to 'Edit', edit_touring_log_path(touring_log) %></td>
-        <td><%= link_to 'Destroy', touring_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Touring Log', new_touring_log_path %>
+<div class="mx-5 my-3">
+  <div class="touring_log_title_text">
+    <p>〜Touring logs〜</p>
+  </div>
+  <% @touring_logs.each do |touring_log| %>
+    <div class="touring_log_name_title text-center">
+      <%= touring_log.name %>
+    </div>
+    <div class="text-right pr-5 mr-5">
+      <%= link_to "コメント", touring_log_path(touring_log) %>
+      <%= link_to "削除", touring_log_path(touring_log), method: :delete, data: { confirm: '削除しますか?' }  %>
+    </div> 
+    <hr>
+  <% end %>
+  <div class="text-center font-italic  ">
+    <%= link_to "New", new_touring_log_path, class: "new_button"  %>
+  </div>
+</div>
