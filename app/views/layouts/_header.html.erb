@@ -1,6 +1,10 @@
 <header>
-  <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm samazon-header-container">
-    <a class="navbar-brand" href="/"><%= ENV["APP_NAME"] %></a>
+  <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm touring_log-header-container">
+   <%= link_to root_path do %> 
+   <div class="image-size">
+    <%= image_tag "/images/logo.jpg" %>
+    </div>
+   <% end %>
     
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -12,8 +16,10 @@
       <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
       <% if user_signed_in? %>
         <li class="nav-item mr-5">
-          <%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item" %>
-        </li>
+          <%= link_to mypage_users_path, class: "nav-link" do %>
+            <i class="fas fa-user mr-1"></i><label>マイページ</label>
+          <% end %>
+        </li>  
       <% else %>
         
         <li class="nav-item mr-5">
@@ -28,7 +34,7 @@
         <li class="nav-item mr-5">
           <%= link_to login_path, class: "nav-link" do %><i class="fas fa-shopping-cart"></i><% end %>
         </li>
-      <% end %>
+          <% end %>
     </div>
   </nav>
 </header>

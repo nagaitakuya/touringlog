@@ -1,5 +1,29 @@
-<h1>New Touring Log</h1>
-
-<%= render 'form', touring_log: @touring_log %>
-
-<%= link_to 'Back', touring_logs_path %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Touringlog</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="new_touring_log_title">
+        <p>〜New Touring log〜</p>
+      </div>
+      <%= form_with model: @touring_log do |f| %> 
+        <div class="form-group mx-5 bg-dark text-white ">
+          <div class="pt-2 pl-3">
+            <%= f.label "地名・店舗・施設" %>
+          </div>
+          <div class="form-style">
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+        </div>
+        <div class="submit-button">
+          <%= f.submit "投稿", class:"btn btn-success my-3" %>
+        </div>
+      <% end %>
+      <div class="new_log_return_button">  
+        <%= link_to 'Touring logsに戻る', touring_logs_path  %>
+      </div>    
+    </div>
+  </body>
+</html> 

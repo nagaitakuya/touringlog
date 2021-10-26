@@ -1,6 +1,56 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
+@import 'bootstrap';
+
+ body {
+  background-image: url(bike_background1.jpg);
+  background-color:rgba(255,255,255,0.5);
+  background-blend-mode:lighten;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+ }
+
+.touring_log_title_text {
+  text-align: center;
+  font-weight: bold;
+  font-size: 50px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  color: #935ff1;
+} 
+
+.new_touring_log_title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: #935ff1;
+} 
+
+.submit-button {
+  text-align: center;
+}
+
+.return-button {
+text-align: center;
+}
+
+.form-style {
+  border-width: 5px;
+  border-style: ridge; 
+}
+
+
+.touring_log_name_text {
+  font-weight: bold;
+  font-size: 20px;
+}
+
 .touringlog-login-input {
   border-radius: 2px;
-  border: solid 1px #b2b2b2;
+  border: solid 1px #f8f7f7;
   background-color:  #ffffff
 }
 
@@ -40,9 +90,9 @@
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
-  color: #b2b2b2;
-  color: #ffffff;
-  background-color: #0fbe9f;
+  color: #f7f7f7;
+  color: #eaf3b8;
+  background-color: #e97528;
 }
 
 .touringlog-login-text {
@@ -86,4 +136,28 @@
 
 .touringlog-header-shoppingcart-icon {
   color: #ffffff;
+}
+
+.new_button {
+  color: #e3342f;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.return-button {
+  text-align: right;
+}
+
+.comment_page_log_name {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.new_log_return_button {
+  text-align: center;
+}
+
+.user-edit-label {
+  cursor: pointer;
+  cursor: hand;
 }
